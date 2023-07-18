@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+            <%if(contacts.length === 0){ %>
+                <h1>empty list</h1>
+            <%}else{%>
+                
+                    <%for(let i = 0;i < contacts.length;i++){%>
+                        <tr>
+                            <td><%= contacts[i].first %></td>
+                            <td><%= contacts[i].last %></td>
+                            <td><%= contacts[i].email %></td>
+                            <td><a href="contacts/deleteContact/<%=contacts[i].id%>">Delete</a></td>
+                            <td><a href="contacts/editContact/<%=contacts[i].id%>">Edit</a></td>
+                        </tr>    
+                    <%}%>
+            <%}%>
+    </table>
+
+    <a href="/contacts/addContact">Add Contact</a>
+</body>
+</html>
